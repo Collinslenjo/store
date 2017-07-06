@@ -1,3 +1,43 @@
+# 6.5.4
+
+* Fix for https://github.com/angular-redux/store/issues/427: memory leaks introduced in 6.3.0.
+
+** You'll want to grab this update! **
+
+# 6.5.3
+
+* Handle `@WithSubStore`, `.configureSubStore` boundary cases for when the base path
+doesn't exist in the store yet.
+
+# 6.5.2
+
+* Docgen updates.
+
+# 6.5.1
+
+* Allow `@WithSubStore`'s base path to be dynamic.
+
+# 6.5.0
+
+* Enabled fractal store features for the decorator interface. See
+https://github.com/angular-redux/store/blob/master/articles/fractal-store.md for details.
+
+# 6.4.5
+
+* Fix a boundary condition where `MockNgRedux` could get instantiated
+twice under certain conditions.
+* Adjust exposed interfaces of `MockNgRedux` and `NgRedux` to make them
+structurally compatible (both assignable to the `NgRedux` type) (issue #419)
+* Update to TypeScript 2.3.4
+
+# 6.4.4
+
+* Improve packaging of `testing` submodule for people working in strict mode (thanks @ialibhay)!
+
+# 6.4.3
+
+* Reset `MockNgRedux.mockInstance` as part of `MockNgRedux.reset()`.
+
 # 6.4.2
 
 * Fixed some issues with MockNgRedux and the select dectorators. See https://github.com/angular-redux/store/issues/413 for details.
@@ -32,7 +72,7 @@ See [the docs](https://github.com/angular-redux/store/blob/master/articles/fract
 
 * Fixed issues with middlewares that allow dispatching of things other than just raw actions
 (e.g. redux-thunk) [#386, #264].
-* Fixed issues with enhancers that chage the way `Store.subscribe` and listeners work (e.g. redux-batch) [#372]
+* Fixed issues with enhancers that change the way `Store.subscribe` and listeners work (e.g. redux-batch) [#372]
 
 ## Features
 
@@ -73,6 +113,10 @@ export class AnimalActions {
   // ...
 }
 ```
+
+# 6.2.2
+
+* Reset `MockNgRedux.mockInstance` as part of `MockNgRedux.reset()`.
 
 # 6.2.1
 

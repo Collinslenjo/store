@@ -1,8 +1,10 @@
 import { Observable } from 'rxjs/Observable';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/let'
 import { NgRedux } from '../components/ng-redux';
+import { ObservableStore } from '../components/observable-store';
 import { Selector, Comparator, Transformer } from '../components/selectors';
-import { selectionMap } from '../utils/selection-map';
+import { IFractalStoreOptions, getInstanceSelection } from './helpers';
 
 /**
  * Selects an observable from the store, and attaches it to the decorated
@@ -17,33 +19,14 @@ import { selectionMap } from '../utils/selection-map';
  */
 export function select<T>(
   selector?: Selector<any, T>,
-  comparator?: Comparator) {
-
-  return function decorate(target: any, key: string): void {
-    let bindingKey = selector;
-    if (!selector) {
-      bindingKey = (key.lastIndexOf('$') === key.length - 1) ?
+  comparator?: Comparator): PropertyDecorator {
+  return (target: any, key: string): void => {
+    const adjustedSelector = selector ?
+      selector :
+      (key.lastIndexOf('$') === key.length - 1) ?
         key.substring(0, key.length - 1) :
         key;
-    }
-
-    function getter() {
-      let selection = selectionMap.get(bindingKey, null, comparator);
-      if (NgRedux.instance && !selection) {
-        selection = NgRedux.instance.select(bindingKey, comparator);
-        selectionMap.set(bindingKey, null, comparator, selection);
-      }
-      return selection;
-    }
-
-    // Replace decorated property with a getter that returns the observable.
-    if (delete target[key]) {
-      Object.defineProperty(target, key, {
-        get: getter,
-        enumerable: true,
-        configurable: true
-      });
-    }
+    decorate(adjustedSelector, undefined, comparator)(target, key);
   };
 }
 
@@ -59,18 +42,22 @@ export function select<T>(
 export function select$<T>(
   selector: Selector<any, T>,
   transformer: Transformer<any, T>,
-  comparator?: Comparator) {
+  comparator?: Comparator): PropertyDecorator {
+  return decorate(selector, transformer, comparator);
+}
 
-  return function decorate(target: any, key: string): void {
-    function getter() {
-      let selection = selectionMap.get(selector, transformer, comparator);
-      if (NgRedux.instance && !selection) {
-        selection = NgRedux.instance.select(selector)
-          .let(transformer)
-          .distinctUntilChanged(comparator);
-        selectionMap.set(selector, transformer, comparator, selection);
-      }
-      return selection;
+function decorate(
+  selector: Selector<any, any>,
+  transformer?: Transformer<any, any>,
+  comparator?: Comparator): PropertyDecorator {
+  return function decorator(target: any, key): void {
+    function getter(this: any) {
+      return getInstanceSelection(
+        this,
+        key,
+        selector,
+        transformer,
+        comparator);
     }
 
     // Replace decorated property with a getter that returns the observable.
@@ -81,5 +68,5 @@ export function select$<T>(
         configurable: true
       });
     }
-  };
+  }
 }

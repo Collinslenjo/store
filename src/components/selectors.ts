@@ -21,13 +21,13 @@ export const sniffSelectorType = <RootState, S>(selector?: Selector<RootState, S
         'property';
 
 /** @hidden */
-export const resolver = <RootState, S>(selector: Selector<RootState, S>) => ({
-  property: state => state[selector as PropertySelector],
-  path: state => getIn(state, selector as PathSelector),
+export const resolver = <RootState, S>(selector?: Selector<RootState, S>) => ({
+  property: (state: any) => state ? state[selector as PropertySelector] : undefined,
+  path: (state: RootState) => getIn(state, selector as PathSelector),
   function: selector as FunctionSelector<RootState, S>,
-  nil: state => state,
+  nil: (state: RootState) => state,
 });
 
 /** @hidden */
-export const resolveToFunctionSelector = <RootState, S>(selector: Selector<RootState, S>) =>
+export const resolveToFunctionSelector = <RootState, S>(selector?: Selector<RootState, S>) =>
   resolver(selector)[sniffSelectorType(selector)];

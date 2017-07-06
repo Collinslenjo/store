@@ -913,15 +913,15 @@ img { max-width: 100%; }
 		<li class="current tsd-kind-class">
 			<a href="mockdevtoolsextension.html" class="tsd-kind-icon">Mock<wbr>Dev<wbr>Tools<wbr>Extension</a>
 			<ul>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="mockdevtoolsextension.html#enhancer" class="tsd-kind-icon">enhancer</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="mockdevtoolsextension.html#isenabled" class="tsd-kind-icon">is<wbr>Enabled</a>
 				</li>
 			</ul>
 		</li>
-		<li class=" tsd-kind-class tsd-has-type-parameter">
+		<li class=" tsd-kind-class">
 			<a href="mockngredux.html" class="tsd-kind-icon">Mock<wbr>NgRedux</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
@@ -932,6 +932,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-class">
 			<a href="ngreduxtestingmodule.html" class="tsd-kind-icon">Ng<wbr>Redux<wbr>Testing<wbr>Module</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="../interfaces/ifractalstoreoptions.html" class="tsd-kind-icon">IFractal<wbr>Store<wbr>Options</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-has-type-parameter">
 			<a href="../interfaces/observablestore.html" class="tsd-kind-icon">Observable<wbr>Store</a>
@@ -955,7 +958,13 @@ img { max-width: 100%; }
 			<a href="../globals.html#transformer" class="tsd-kind-icon">Transformer</a>
 		</li>
 		<li class=" tsd-kind-function">
+			<a href="../globals.html#withsubstore" class="tsd-kind-icon">With<wbr>Sub<wbr>Store</a>
+		</li>
+		<li class=" tsd-kind-function">
 			<a href="../globals.html#dispatch" class="tsd-kind-icon">dispatch</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#enablefractalreducers" class="tsd-kind-icon">enable<wbr>Fractal<wbr>Reducers</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="../globals.html#select" class="tsd-kind-icon">select</a>
@@ -971,7 +980,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="tsd-signature-type">DevToolsExtension</span>
+					<a href="devtoolsextension.html" class="tsd-signature-type">DevToolsExtension</a>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">MockDevToolsExtension</span>
@@ -985,93 +994,70 @@ img { max-width: 100%; }
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section tsd-is-inherited">
-						<h3>Properties</h3>
+						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="mockdevtoolsextension.html#enhancer" class="tsd-kind-icon">enhancer</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="mockdevtoolsextension.html#isenabled" class="tsd-kind-icon">is<wbr>Enabled</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mockdevtoolsextension.html#enhancer" class="tsd-kind-icon">enhancer</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mockdevtoolsextension.html#isenabled" class="tsd-kind-icon">is<wbr>Enabled</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
-			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="enhancer" class="tsd-anchor"></a>
 				<h3>enhancer</h3>
-				<div class="tsd-signature tsd-kind-icon">enhancer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<p>Inherited from DevToolsExtension.enhancer</p>
-					<ul>
-						<li>Defined in lib/src/components/dev-tools.d.ts:20</li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A wrapper for the Chrome Extension Redux DevTools.
-							Makes sure state changes triggered by the extension
-						trigger Angular2&#39;s change detector.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>argument</dt>
-						<dd><p>options: dev tool options; same
-								format as described here:
-							[zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md]</p>
-						</dd>
-					</dl>
-				</div>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">enhancer<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="devtoolsextension.html">DevToolsExtension</a>.<a href="devtoolsextension.html#enhancer">enhancer</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/ng2-redux/blob/7460bee/src/components/dev-tools.ts#L26">src/components/dev-tools.ts:26</a></li>
 							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Object</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>A wrapper for the Chrome Extension Redux DevTools.
+									Makes sure state changes triggered by the extension
+								trigger Angular2&#39;s change detector.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Object</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+					</li>
+				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="isenabled" class="tsd-anchor"></a>
 				<h3>is<wbr>Enabled</h3>
-				<div class="tsd-signature tsd-kind-icon">is<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<p>Inherited from DevToolsExtension.isEnabled</p>
-					<ul>
-						<li>Defined in lib/src/components/dev-tools.d.ts:24</li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Returns true if the extension is installed and enabled.</p>
-					</div>
-				</div>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="devtoolsextension.html">DevToolsExtension</a>.<a href="devtoolsextension.html#isenabled">isEnabled</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/ng2-redux/blob/7460bee/src/components/dev-tools.ts#L51">src/components/dev-tools.ts:51</a></li>
 							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns true if the extension is installed and enabled.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<footer class="with-border-bottom">

@@ -9,17 +9,15 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "outDir": "lib/src/",
-    "noImplicitAny": false,
     "declaration": true,
     "lib": [
       "es2015",
       "es2015.iterable",
       "dom"
     ],
+    "strict": true,
     "paths": {
-      "@angular-redux/store": [
-        "./src"
-      ]
+      "@angular-redux/store": [ "./src/index.ts" ]
     }
   },
   "compileOnSave": false,
