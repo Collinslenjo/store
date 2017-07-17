@@ -14,7 +14,7 @@ interface IAppState {
   baz: number;
 }
 
-type PayloadAction = Action & { payload: any };
+type PayloadAction = Action & { payload?: any };
 
 class MockNgZone { run = (fn: Function) => fn() }
 
@@ -98,7 +98,7 @@ describe('Select decorators', () => {
     });
 
     describe('when passed a comparator', () => {
-      const comparator = (x: any, y: any): boolean => y === 1;
+      const comparator = (_: any, y: any): boolean => y === 1;
       class MockClass { @select('baz', comparator) baz$: Observable<number> };
 
       it('should only trigger next when comparator returns true', done => {
@@ -116,9 +116,9 @@ describe('Select decorators', () => {
 
       it('should receive previous and next value for comparison', done => {
         const spy = jasmine.createSpy('spy');
-        class MockClass { @select('baz', spy) baz$: Observable<number>; }
+        class LocalMockClass { @select('baz', spy) baz$: Observable<number>; }
 
-        const mockInstance = new MockClass();
+        const mockInstance = new LocalMockClass();
         mockInstance
           .baz$
           .take(3)
@@ -151,7 +151,7 @@ describe('Select decorators', () => {
     });
 
     describe('when passed a comparator', () => {
-      const comparator = (x: any, y: any): boolean => y === 1;
+      const comparator = (_: any, y: any): boolean => y === 1;
       class MockClass { @select$('baz', transformer, comparator) baz$: Observable<number> }
 
       it('should only trigger next when the comparator returns true', done => {

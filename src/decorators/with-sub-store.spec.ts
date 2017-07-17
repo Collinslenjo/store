@@ -3,6 +3,7 @@ import { Action } from 'redux';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/toArray';
 
 import { WithSubStore } from './with-sub-store';
 import { select, select$ } from './select';
@@ -15,7 +16,7 @@ class MockNgZone { run = (fn: Function) => fn() }
 
 describe('@WithSubStore', () => {
   let ngRedux: NgRedux<any>;
-  const localReducer = (state: any, action: Action) => state;
+  const localReducer = (state: any, _: Action) => state;
   const basePathMethodName = 'getSubStorePath';
 
   beforeEach(() => {
@@ -29,7 +30,7 @@ describe('@WithSubStore', () => {
     ngRedux = new RootStore(new MockNgZone() as NgZone);
     NgRedux.instance = ngRedux;
     ngRedux.configureStore(
-      (state: any, action: Action) => state,
+      (state: any, _: Action) => state,
       defaultState);
   });
 
@@ -131,7 +132,7 @@ describe('@WithSubStore', () => {
 
     it('handle a base path with no extant store data', () => {
       const iDontExistYetReducer =
-        (state: any, action: Action & { newValue: string }) =>
+        (state: any, action: Action & { newValue?: string }) =>
           ({ ...state, nonexistentkey: action.newValue });
 
       @WithSubStore({ basePathMethodName, localReducer: iDontExistYetReducer })
