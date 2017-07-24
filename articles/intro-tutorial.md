@@ -216,7 +216,7 @@ So, let's use the ingredients above to create a Redux store and hook it up to An
 ```typescript
 // ... imports as above
 
-import { rootReducer, IAppState, INITIAL_STATE } from './store'; // < New
+import { rootReducer, IAppState, INITIAL_STATE } from '../store'; // < New
 import { CounterActions } from './app.actions'; // <- New
 
 @NgModule({
@@ -336,10 +336,12 @@ that lets you get the latest value of something that changes over time. Go back 
 and `select` the `count` property into your component:
 
 ```typescript
-// Imports as before.
+// Imports as before
+
+import { OnDestroy } from '@angular/core';
 
 // Decorator as before
-export class AppComponent {
+export class AppComponent implements OnDestroy { // <- New
   title = 'app works!';
   count: number;
   subscription; // <- New;
